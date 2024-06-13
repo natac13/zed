@@ -1,0 +1,134 @@
+[
+  {
+    "bindings": {
+      "cmd-j": "menu::SelectNext",
+      "cmd-k": "menu::SelectPrev",
+      "cmd-n": "menu::SelectNext",
+      "cmd-p": "menu::SelectPrev",
+      "cmd-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "cmd-l": ["workspace::ActivatePaneInDirection", "Right"]
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in normal & visual mode
+      "shift-k": "editor::Hover",
+      "space l f": "editor::Format",
+      "space a c": "editor::ToggleCodeActions",
+      "space l r": "editor::Rename",
+      "[ d": "editor::GoToPrevDiagnostic",
+      "] d": "editor::GoToDiagnostic",
+      "space x l": "diagnostics::Deploy",
+      "space x x": "diagnostics::ToggleWarnings",
+      "space e": "workspace::ToggleLeftDock",
+      "space r": "workspace::ToggleRightDock",
+      "g I": "editor::GoToImplementation",
+      "space o o": "tab_switcher::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting",
+    "bindings": {
+      "j": ["vim::Down", { "displayLines": true }],
+      "k": ["vim::Up", { "displayLines": true }]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+      "cmd-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "cmd-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "cmd-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "cmd-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "space shift-h": ["workspace::SwapPaneInDirection", "Left"],
+      "space shift-l": ["workspace::SwapPaneInDirection", "Right"],
+      "space shift-k": ["workspace::SwapPaneInDirection", "Up"],
+      "space shift-j": ["workspace::SwapPaneInDirection", "Down"],
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+      "space |": "pane::SplitRight",
+      "space -": "pane::SplitDown",
+      "cmd-f": "vim::PageDown",
+      "cmd-b": "vim::PageUp",
+      "cmd-e": "vim::LineDown",
+      "cmd-y": "editor::LineUp",
+      "cmd-o": "pane::GoBack",
+      "cmd-i": "pane::GoForward",
+      "z a": "editor::Fold",
+      "z o": "editor::UnfoldLines",
+      "space l s": "outline::Toggle",
+      "space l shift-s": "project_symbols::Toggle",
+      "j": ["vim::Down", { "displayLines": true }],
+      "k": ["vim::Up", { "displayLines": true }],
+      "g s": null // need to change when signuatrue help is implemented
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // put key-bindings here if you want them to work in insert mode
+      // "j k": "vim::NormalBefore"
+      "j k": ["vim::SwitchMode", "Normal"]
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "cmd-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "cmd-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "cmd-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "cmd-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // these nulls are to remove default VSCode keybindings that cause
+      // the cmd-k from not working for the menu
+      "cmd-k cmd-d": null,
+      "cmd-k ctrl-cmd-d": null,
+      "cmd-k cmd-i": null,
+      "cmd-shift-backspace": "editor::DeleteToBeginningOfLine",
+      "cmd-shift-delete": "vim::DeleteToEndOfLine",
+      "cmd-space": "editor::ShowCompletions",
+      // open terminal
+      "cmd-\\": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "cmd-k": "editor::ContextMenuPrev",
+      "cmd-j": "editor::ContextMenuNext",
+      "cmd-p": "editor::ContextMenuPrev",
+      "cmd-n": "editor::ContextMenuNext",
+      "cmd-y": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-j": null,
+      "cmd-r": "editor::Redo"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      // close terminal
+      "cmd-\\": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-k enter": null
+    }
+  }
+]
