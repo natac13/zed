@@ -158,6 +158,7 @@
       "cmd-enter": "project_panel::OpenPermanent",
       "a": "project_panel::NewFile",
       "shift-a": "project_panel::NewDirectory",
+      "y": "project_panel::CopyRelativePath",
       "r": "project_panel::Rename",
       "z": "project_panel::CollapseAllEntries",
       "cmd-backspace": "project_panel::Delete",
