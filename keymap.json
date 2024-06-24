@@ -19,8 +19,7 @@
       "space l r": "editor::Rename",
       "[ d": "editor::GoToPrevDiagnostic",
       "] d": "editor::GoToDiagnostic",
-      "space x l": "diagnostics::Deploy",
-      "space x x": "diagnostics::ToggleWarnings",
+      "space x x": "diagnostics::Deploy",
       "space e": "workspace::ToggleLeftDock",
       "space r": "workspace::ToggleRightDock",
       "g I": "editor::GoToImplementation",
@@ -36,6 +35,7 @@
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    // "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       // put key-bindings here if you want them to work only in normal mode
       "cmd-h": ["workspace::ActivatePaneInDirection", "Left"],
@@ -53,7 +53,7 @@
       "cmd-f": "vim::PageDown",
       "cmd-b": "vim::PageUp",
       "cmd-e": "vim::LineDown",
-      "cmd-y": "editor::LineUp",
+      "cmd-y": "vim::LineUp",
       "cmd-o": "pane::GoBack",
       "cmd-i": "pane::GoForward",
       "z a": "editor::Fold",
@@ -66,8 +66,19 @@
     }
   },
   {
+    "context": "Editor && VimControl && !VimWaiting && menu",
+    "bindings": {
+      "cmd-e": "vim::LineDown",
+      "cmd-y": "vim::LineUp",
+      "cmd-f": "vim::PageDown",
+      "cmd-b": "vim::PageUp"
+    }
+  },
+  {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
-    "bindings": {}
+    "bindings": {
+      "cmd-i": "assistant::InlineAssist"
+    }
   },
   {
     "context": "Editor && vim_mode == insert",
@@ -129,6 +140,30 @@
     "context": "Editor && mode == full",
     "bindings": {
       "cmd-k enter": null
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "z": "project_panel::CollapseAllEntries"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "l": "project_panel::OpenPermanent",
+      "cmd-enter": "project_panel::OpenPermanent",
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "z": "project_panel::CollapseAllEntries",
+      "cmd-backspace": "project_panel::Delete",
+      "cmd-x": "project_panel::Cut",
+      "cmd-c": "project_panel::Copy",
+      "cmd-v": "project_panel::Paste"
     }
   }
 ]
